@@ -12,11 +12,8 @@ set(PDFWRITER_SO_VERSION ${PDFWRITER_MAJOR})
 include_directories (${LIBAESGM_INCLUDE_DIRS})
 include_directories (${ZLIB_INCLUDE_DIRS})
 
-if(NOT PDFHUMMUS_NO_DCT)
-	include_directories (${LIBJPEG_INCLUDE_DIRS})
-else(NOT PDFHUMMUS_NO_DCT)
-	add_definitions(-DPDFHUMMUS_NO_DCT=1)
-endif(NOT PDFHUMMUS_NO_DCT)
+include_directories (${JPEG_INCLUDE_DIR})
+add_definitions(-DPDFHUMMUS_NO_DCT=1)
 
 if(NOT PDFHUMMUS_NO_TIFF)
 	include_directories (${LIBTIFF_INCLUDE_DIRS})
@@ -359,7 +356,7 @@ WrittenFontTrueType.h
 XCryptionCommon.h
 XObjectContentContext.h
 )
-target_link_libraries(PDFWriter ${LIBAESGM_LDFLAGS} ${LIBJPEG_LDFLAGS} ${ZLIB_LDFLAGS} ${LIBTIFF_LDFLAGS} ${FREETYPE_LDFLAGS})
+target_link_libraries(PDFWriter ${LIBAESGM_LDFLAGS} ${JPEG_LIBRARIES} ${ZLIB_LDFLAGS} ${LIBTIFF_LDFLAGS} ${FREETYPE_LDFLAGS})
 set_target_properties(PDFWriter PROPERTIES VERSION ${PDFWRITER_LIB_VERSION} SOVERSION ${PDFWRITER_SO_VERSION})
 
 install(TARGETS PDFWriter
