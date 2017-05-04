@@ -894,10 +894,9 @@ EStatusCode TIFFImageHandler::ReadTIFFPageInformation() //t2p_read_tiff_data
 								mT2p->inputFilePath.c_str());
 							break;
 						}
-						mT2p->pdf_colorspace=T2P_CS_CMYK;
-						mT2p->pdf_switchdecode ^= 1;
+                        mT2p->pdf_sample=T2P_SAMPLE_RGBAA_TO_RGB;
 						TRACE_LOG1(
-							"TIFFImageHandler::ReadTIFFPageInformation, RGB image %s has 4 samples per pixel, assuming CMYK",
+                            "TIFFImageHandler::ReadTIFFPageInformation, RGB image %s has 4 samples per pixel, assuming RBGA",
 							mT2p->inputFilePath.c_str());
 						break;
 					} 
