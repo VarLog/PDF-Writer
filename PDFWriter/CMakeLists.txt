@@ -8,20 +8,12 @@ set(PDFWRITER_MINOR 0)
 set(PDFWRITER_LIB_VERSION ${PDFWRITER_MAJOR}.${PDFWRITER_MINOR}.0)
 set(PDFWRITER_SO_VERSION ${PDFWRITER_MAJOR})
 
-
 include_directories (${LIBAESGM_INCLUDE_DIRS})
 include_directories (${ZLIB_INCLUDE_DIRS})
-
 include_directories (${JPEG_INCLUDE_DIR})
-add_definitions(-DPDFHUMMUS_NO_DCT=1)
-
-if(NOT PDFHUMMUS_NO_TIFF)
-	include_directories (${LIBTIFF_INCLUDE_DIRS})
-else(NOT PDFHUMMUS_NO_TIFF)
-	add_definitions(-DPDFHUMMUS_NO_TIFF=1)
-endif(NOT PDFHUMMUS_NO_TIFF)
-
+include_directories (${LIBTIFF_INCLUDE_DIRS})
 include_directories (${FREETYPE_INCLUDE_DIRS})
+
 add_library (PDFWriter 
 #sources
 AbstractContentContext.cpp
