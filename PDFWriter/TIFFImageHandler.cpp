@@ -2688,6 +2688,14 @@ PDFImageXObject* TIFFImageHandler::WriteUntiledImageXObject()
 		imageContext->WriteKey(scHeight);
 		imageContext->WriteIntegerValue(mT2p->tiff_length);
 
+                const auto smask = mUserParameters.SMaskObjectReference;
+                if(smask.ObjectID != 0)
+                {
+                    imageContext->WriteKey("SMask");
+                    imageContext->WriteObjectReferenceValue(smask);
+                }
+
+
 		// filter
 		WriteImageXObjectFilter(imageContext,0);
 

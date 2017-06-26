@@ -21,6 +21,7 @@
 #pragma once
 
 #include "CMYKRGBColor.h"
+#include "ObjectsBasicTypes.h"
 
 // Options for TIFF image usage.
 // by default the image drawn would be the first page of the input tiff (either one page or multipage)
@@ -79,6 +80,9 @@ struct TIFFUsageParameters
 
 	// Grayscale options
 	TIFFBiLevelGrayscaleColorTreatment GrayscaleTreatment;
+
+        // SMask
+        ObjectReference SMaskObjectReference;
 
 	TIFFUsageParameters():BWTreatment(TIFFBiLevelBWColorTreatment::DefaultTIFFBiLevelBWColorTreatment()),GrayscaleTreatment(TIFFBiLevelGrayscaleColorTreatment::DefaultTIFFBiLevelGrayscaleColorTreatment())
 						{PageIndex = 0;}
