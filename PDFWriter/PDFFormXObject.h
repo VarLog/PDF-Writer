@@ -22,7 +22,7 @@
 
 #include "ObjectsBasicTypes.h"
 #include "ResourcesDictionary.h"
-
+#include "PDFRectangle.h"
 
 namespace PDFHummus
 {
@@ -47,7 +47,9 @@ public:
 	XObjectContentContext* GetContentContext();
 	PDFStream* GetContentStream();
 
-	
+    void SetBBox(const PDFRectangle& bbox);
+    PDFRectangle GetBBox() const;
+
 private:
 
 	ObjectIDType mXObjectID;
@@ -55,4 +57,6 @@ private:
 	ResourcesDictionary mResources;
 	PDFStream* mContentStream;
 	XObjectContentContext* mContentContext;
+
+    PDFRectangle mBBox;
 };
