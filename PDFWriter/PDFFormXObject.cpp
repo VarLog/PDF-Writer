@@ -61,3 +61,13 @@ XObjectContentContext* PDFFormXObject::GetContentContext()
 {
 	return mContentContext;
 }
+
+void PDFFormXObject::SetBBox(const PDFRectangle& bbox)
+{
+    mBBox = bbox;
+}
+
+PDFRectangle PDFFormXObject::GetBBox() const
+{
+    return mBBox;
+}

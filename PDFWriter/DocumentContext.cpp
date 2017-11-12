@@ -1000,6 +1000,7 @@ PDFFormXObject* DocumentContext::StartFormXObject(const PDFRectangle& inBounding
 
 		// Now start the stream and the form XObject state
 		aFormXObject =  new PDFFormXObject(this,inFormXObjectID,mObjectsContext->StartPDFStream(xobjectContext),formXObjectResourcesDictionaryID);
+        aFormXObject->SetBBox(inBoundingBox);
 	} while(false);
 
 	return aFormXObject;	
